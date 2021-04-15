@@ -3,7 +3,9 @@ let met2 = [];
 let met3 = [];
 let met5 = [];
 let met6 = [];
+let met10 = [];
 let x = 0;
+let i = 0;
 
 // Metodo 1:
 function metodo1(a,b){
@@ -78,12 +80,43 @@ function metodo6(number){
 
 metodo6([1,2,3,3,2,4,5,4,7,3]);
 
+// Metodo 7:
+
+const metodo7 = (vetor1, vetor2) => {
+    return vetor1.every((item,index) => item === vetor2[index])
+}
+
+console.log(metodo7([1,2,3,4],[1,2,3,4]));
 
 // Metodo 8:
 
-function metodo8(met8){
-    let a = [...met8];
+const metodo8 = element => element.reduce((acc, value) => acc.concat(value),[]);
 
+console.log(metodo8([1, 2, [3], [4, 5]]));
+
+// Metodo 9:
+
+function metodo9(element, x){
+    for (i = 0; i <= x; i++){
+        element[x] 
+    }
 }
-metodo8([1, 2, [3], [4, 5]]);
+
+
+// Metodo 10:
+
+function metodo10(vetor1,vetor2){
+    for (x = 0; i < vetor1.length; x++){
+        if (vetor1.indexOf(vetor2[x]) != -1){
+            met10.push(vetor2[x]);
+        }
+        else {
+            console.log("teste");
+        }
+    }
+    console.log(met10)
+}
+
+metodo10([6, 8], [8, 9]);
+
 
