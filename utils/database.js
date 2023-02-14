@@ -1,5 +1,3 @@
-const { Client } = require("pg");
-
 class DataBase {
   constructor() {
     this.host = "localhost";
@@ -10,18 +8,17 @@ class DataBase {
   }
 
   async init() {
-    const client = new Client({
-      user: this.user,
-      host: this.host,
-      database: this.database,
-      password: this.password,
-      port: this.port,
+    const knex = require("knex")({
+      client: "pg",
+      connection: {
+        host: this.host,
+        port: this.port,
+        user: this.user,
+        password: this.password,
+        database: this.database,
+      },
     });
   }
-
-  /*async query(query) {
-    return await this.connection.execute(query);
-  }*/
 }
 
 module.exports = new DataBase();
