@@ -18,8 +18,11 @@
   },
   "homepage": "https://github.com/nicolasdsa/Github-React#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.1",
     "express": "^4.18.2",
+    "joi": "^17.8.3",
+    "jsonwebtoken": "^9.0.0",
     "knex": "^2.4.2",
     "pg": "^8.9.0"
   },
