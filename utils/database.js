@@ -1,24 +1,4 @@
-class DataBase {
-  constructor() {
-    this.host = "localhost";
-    this.database = "map";
-    this.user = "postgres";
-    this.password = "98x$9eg72JLz";
-    this.port = 5432;
-  }
+const knexfile = require("../knexfile");
+const knex = require("knex")(knexfile.development);
 
-  async init() {
-    const knex = require("knex")({
-      client: "pg",
-      connection: {
-        host: this.host,
-        port: this.port,
-        user: this.user,
-        password: this.password,
-        database: this.database,
-      },
-    });
-  }
-}
-
-module.exports = new DataBase();
+module.exports = knex;

@@ -7,11 +7,16 @@ module.exports = {
   development: {
     client: "pg",
     connection: {
-      host: "localhost",
-      database: "map",
+      database: "map_prototype",
       user: "postgres",
       password: "98x$9eg72JLz",
-      port: 5432,
+    },
+    migrations: {
+      tableName: "knex_migrations",
+      directory: `${__dirname}/migrations`,
+    },
+    seeds: {
+      directory: `${__dirname}/seeds`,
     },
   },
 

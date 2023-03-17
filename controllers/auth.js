@@ -1,5 +1,5 @@
 const bcrypt = require("bcryptjs");
-const FuncionarioController = require("./user");
+const UserController = require("./user");
 const jwt = require("jsonwebtoken");
 const ApiError = require("../utils/apiError");
 
@@ -10,13 +10,13 @@ class AuthController {
     const salt = bcrypt.genSaltSync(12);
     const hash = bcrypt.hashSync(password, salt);
 
-    /*const user = await FuncionarioController.getUser(email);
+    const [user] = await UserController.getUser(email);
 
     if (user) {
       throw ApiError.badRequest("Este Email já está sendo utilizado.", {});
-    }*/
+    }
 
-    const id = await FuncionarioController.create({
+    const id = await UserController.create({
       email,
       password: hash,
       username,
@@ -26,10 +26,10 @@ class AuthController {
   }
 
   static async signin({ email, password }) {
-    const user = await FuncionarioController.getUser(email);
+    const [user] = await UserController.getUser(email);
 
     if (!user) {
-      throw ApiError.NotFound("O funcionario não existe.", {});
+      throw ApiError.NotFound("O usuario não existe.", {});
     }
 
     const isValidPassword = bcrypt.compareSync(password, user.password);

@@ -1,15 +1,23 @@
-const knex = require("../utils/database");
+const Model = require("../utils/model");
 
-class UserModel {
-  async insert({ email, password }) {
-    knex("users").insert({ email, password });
+class UserModel extends Model {
+  constructor() {
+    super("users");
   }
 
-  /*async getUser(email) {
-    const params = [email];
-    const sql = `SELECT * FROM ${this.tableName} WHERE email = ?`;
-    return this.query(sql, params);
-  }*/
+  async insert(user) {
+    const create = await this.query({
+      insert: [user],
+    });
+    return create;
+  }
+
+  async getUser(email) {
+    const user = await this.query({
+      where: { email },
+    });
+    return user;
+  }
 }
 
 module.exports = new UserModel();
