@@ -42,6 +42,12 @@ class Model {
         case "insert":
           q.insert(value);
           break;
+        case "update":
+          q.update(value);
+          break;
+        case "delete":
+          q.delete();
+          break;
         default:
           q.where(key, value);
           break;
