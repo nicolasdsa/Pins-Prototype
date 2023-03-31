@@ -1,3 +1,3 @@
-# Github-React
+# Pins-Prototype
 
-Projeto pausado
+Prototipo de uma api de mapa
